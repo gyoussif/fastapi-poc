@@ -14,5 +14,17 @@ poetry install
 ## Create fastapi project
 ```
 poetry add fastapi uvicorn[standard]
-uvicorn main:app --reload
+uvicorn src.main:app --reload
+```
+## Project Structure
+```
+fastapi-poc
+├── src
+│   ├──main.py #root of the project, which inits the FastAPI app
+├── tests/
+├── .env
+├── .gitignore
+├── poetry.lock
+├── pyproject.toml
+├── README.md
 ```
