@@ -20,6 +20,9 @@ uvicorn src.main:app --reload
 ```
 fastapi-poc
 ├── src
+│   ├── config.py  # global configs
+│   ├── models.py  # global models
+│   ├── database.py  # db connection related stuff
 │   ├──main.py #root of the project, which inits the FastAPI app
 ├── tests/
 ├── .env
