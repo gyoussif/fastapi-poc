@@ -4,3 +4,4 @@ __pycache__
 .vscode
 sqlite.db
 poetry.lock
+.coverage

@@ -16,7 +16,7 @@ echo "Linting success!"
 
 echo "Running unit tests..."
 coverage erase
-TESTS=$(coverage run manage.py test src.tests $1 2>&1 >/dev/null)
+TESTS=$(coverage run -m unittest $1 2>&1 >/dev/null)
 FAILED="(failures="
 ERRORS="(errors="
 if [[ "$TESTS" == *"$FAILED"* || "$TESTS" == *"$ERRORS"* ]]; then
