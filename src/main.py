@@ -1,22 +1,11 @@
 # main.py
-
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 from . import models, schemas
-from src.database import SessionLocal, engine
-from typing import List
+from src.database import engine, get_db
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
-# Dependency
-
-
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
 
 
 @app.get("/api/v1/cart/")
