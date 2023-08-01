@@ -1,9 +1,12 @@
 from sqlalchemy import Boolean, Column, Integer, String
 from src.database import Base
+from enum import Enum
+from pydantic import BaseModel
+from typing import Optional
 
 
-class Todo(Base):
-    __tablename__ = "todos"
+class Cart(Base):
+    __tablename__ = "carts"
     id = Column(Integer, primary_key=True, index=True)
-    title = Column(String)
-    complete = Column(Boolean, default=False)
+    customer_id = Column(String)
+    is_guest = Column(Boolean, default=False)
