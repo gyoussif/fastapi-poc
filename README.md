@@ -40,7 +40,7 @@ fastapi-poc
 - CRUD Operations
 - Sql alchemy: ORM
 - Pydantic: Data parsing and validation 
-
+- Docs Swagger works with VPN or we can host the static files locally following this documentation https://fastapi.tiangolo.com/advanced/extending-openapi/?h=#self-hosting-javascript-and-css-for-docs
 ## TODO
 - Unit test
 - Routing
