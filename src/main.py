@@ -1,8 +1,11 @@
 # main.py
-from fastapi import FastAPI, Depends, HTTPException
+from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
-from . import models, schemas
+
 from src.database import engine, get_db
+
+from . import models, schemas
+
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
@@ -19,8 +22,12 @@ async def get_cart_details(cart_id: int, db: Session = Depends(get_db)):
 
 
 @app.get("/api/v1/cart/customer/{customer_id}/")
-async def get_customer_carts(customer_id: int, skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
-    return db.query(models.Cart).filter(models.Cart.customer_id == customer_id).offset(skip).limit(limit).all()
+async def get_customer_carts(customer_id: int,
+                             skip: int = 0,
+                             limit: int = 10,
+                             db: Session = Depends(get_db)):
+    return db.query(models.Cart).filter(models.Cart.customer_id ==
+                                        customer_id).offset(skip).limit(limit).all()
 
 # Endpoint to create a new Cart
 

@@ -32,6 +32,10 @@ fastapi-poc
 ├── pyproject.toml
 ├── README.md
 ```
+## Coverage
+```
+bash scripts/coverage.sh
+```
 ## Done
 - virtual env
 - Package and dependency management

@@ -1,7 +1,7 @@
-from enum import Enum
-from pydantic import BaseModel
+# from enum import Enum
 from typing import Optional
 
+from pydantic import BaseModel
 
 # class Cart_Status(str, Enum):
 #     IN_PROGRESS = "In Progress"
@@ -15,12 +15,16 @@ class Cart(BaseModel):
     # status: Cart_Status
 
 # Pydantic model for creating a new Cart (POST request)
+
+
 class CartCreate(BaseModel):
     customer_id: int
     is_guest: bool
     # status: Cart_Status
 
 # Pydantic model for updating an existing Cart (PUT request)
+
+
 class CartUpdate(BaseModel):
     customer_id: Optional[int] = None
     is_guest: Optional[bool] = None
