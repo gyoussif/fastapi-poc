@@ -1,8 +1,5 @@
 from sqlalchemy import Boolean, Column, Integer, String
 from src.database import Base
-from enum import Enum
-from pydantic import BaseModel
-from typing import Optional
 
 
 class Cart(Base):

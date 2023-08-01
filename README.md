@@ -22,6 +22,7 @@ fastapi-poc
 ├── src
 │   ├── config.py  # global configs
 │   ├── models.py  # global models
+│   ├── schemas.py  # global schemas using pydantic
 │   ├── database.py  # db connection related stuff
 │   ├──main.py #root of the project, which inits the FastAPI app
 ├── tests/
@@ -31,3 +32,17 @@ fastapi-poc
 ├── pyproject.toml
 ├── README.md
 ```
+## Done
+- virtual env
+- Package and dependency management
+- Basic Structure
+- Model
+- CRUD Operations
+- Sql alchemy: ORM
+- Pydantic: Data parsing and validation 
+
+## TODO
+- Unit test
+- Routing
+- Script
+- Config
