@@ -19,6 +19,8 @@ uvicorn src.main:app --reload
 ## Project Structure
 ```
 fastapi-poc
+├── scripts
+│   ├── coverage.py  # script to run linting and coverage check
 ├── src
 │   ├── config.py  # global configs
 │   ├── models.py  # global models
@@ -26,6 +28,8 @@ fastapi-poc
 │   ├── database.py  # db connection related stuff
 │   ├──main.py #root of the project, which inits the FastAPI app
 ├── tests/
+│   ├── __init__.py  
+│   ├── cart_tests.py  # unittest for the cart APIs
 ├── .env
 ├── .gitignore
 ├── poetry.lock
@@ -45,8 +49,8 @@ bash scripts/coverage.sh
 - Sql alchemy: ORM
 - Pydantic: Data parsing and validation 
 - Docs Swagger works with VPN or we can host the static files locally following this documentation https://fastapi.tiangolo.com/advanced/extending-openapi/?h=#self-hosting-javascript-and-css-for-docs
-## TODO
 - Unit test
-- Routing
 - Script
+## TODO
+- Routing
 - Config
