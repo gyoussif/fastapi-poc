@@ -1,14 +1,25 @@
 # main.py
+# from .logger import setup_rich_logger
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
-
+from .logger import RouterLoggingMiddleware
 from src.database import engine, get_db
-
+import logging
 from . import models, schemas
 
 models.Base.metadata.create_all(bind=engine)
 
-app = FastAPI()
+
+def get_app() -> FastAPI:
+
+    return FastAPI(title="FastAPI poc", debug=True)
+
+
+app = get_app()
+app.add_middleware(
+    RouterLoggingMiddleware,
+    logger=logging.getLogger(__name__)
+)
 
 
 @app.get("/api/v1/cart/")

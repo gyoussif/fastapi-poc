@@ -22,6 +22,7 @@ ERRORS="(errors="
 if [[ "$TESTS" == *"$FAILED"* || "$TESTS" == *"$ERRORS"* ]]; then
   echo "Unit tests failure:"
   echo "${TESTS}"
+  coverage html
   exit 1
 fi
 echo "All unit tests passed!"

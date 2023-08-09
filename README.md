@@ -23,6 +23,8 @@ fastapi-poc
 │   ├── coverage.py  # script to run linting and coverage check
 ├── src
 │   ├── config.py  # global configs
+│   ├── constants.py  # global constants
+│   ├── logger.py  # logging middleware
 │   ├── models.py  # global models
 │   ├── schemas.py  # global schemas using pydantic
 │   ├── database.py  # db connection related stuff
@@ -51,6 +53,7 @@ bash scripts/coverage.sh
 - Docs Swagger works with VPN or we can host the static files locally following this documentation https://fastapi.tiangolo.com/advanced/extending-openapi/?h=#self-hosting-javascript-and-css-for-docs
 - Unit test
 - Script
+- Logging Middleware
+- env variables
 ## TODO
 - Routing
-- Config
