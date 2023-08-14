@@ -53,19 +53,17 @@ class RouterLoggingMiddleware(BaseHTTPMiddleware):
                        ) -> Response:
 
         request_id: str = str(uuid4())
-        logging_dict = {
-            "X-API-REQUEST-ID": request_id  # X-API-REQUEST-ID maps each request-response to a unique ID
-        }
-
         await self.set_body(request)
         response, response_dict = await self._log_response(call_next,
                                                            request,
                                                            request_id
                                                            )
         request_dict = await self._log_request(request)
-        logging_dict["request"] = request_dict
-        logging_dict["response"] = response_dict
-
+        logging_dict = {
+            "X-API-REQUEST-ID": request_id,
+            "request": request_dict,
+            "response": response_dict,
+        }
         self._logger.info(logging_dict)
 
         return response
@@ -109,7 +107,7 @@ class RouterLoggingMiddleware(BaseHTTPMiddleware):
         try:
             body = await request.json()
             request_logging["body"] = body
-        except:
+        except Exception:
             body = None
 
         return request_logging
@@ -148,7 +146,7 @@ class RouterLoggingMiddleware(BaseHTTPMiddleware):
 
         try:
             resp_body = json.loads(resp_body[0].decode())
-        except:
+        except Exception:
             resp_body = str(resp_body)
 
         response_logging["body"] = resp_body
@@ -204,6 +202,6 @@ class AsyncIteratorWrapper:
     async def __anext__(self):
         try:
             value = next(self._it)
-        except StopIteration:
-            raise StopAsyncIteration
+        except StopIteration as e:
+            raise StopAsyncIteration from e
         return value

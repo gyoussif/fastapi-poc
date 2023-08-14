@@ -22,6 +22,9 @@ fastapi-poc
 ├── scripts
 │   ├── coverage.py  # script to run linting and coverage check
 ├── src
+│   ├── routers/
+│   │   ├── __init__.py  
+│   │   ├── cart.py  # API controller for the cart
 │   ├── config.py  # global configs
 │   ├── constants.py  # global constants
 │   ├── logger.py  # logging middleware
@@ -55,5 +58,4 @@ bash scripts/coverage.sh
 - Script
 - Logging Middleware
 - env variables
-## TODO
 - Routing
