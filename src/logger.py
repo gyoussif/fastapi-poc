@@ -1,5 +1,5 @@
 import json
-import logging
+import logging.config
 import sys
 import time
 from typing import Callable
@@ -9,7 +9,9 @@ from fastapi import FastAPI, Request, Response
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.types import Message
 
-LOG_LEVEL = "DEBUG"
+from . import config
+
+LOG_LEVEL = logging.DEBUG if config.ENV_STATE != "prod" else logging.ERROR
 FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 # Logging configuration
 logging_config = {
