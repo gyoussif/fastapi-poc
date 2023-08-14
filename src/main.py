@@ -1,8 +1,11 @@
-from fastapi import FastAPI
-from .logger import RouterLoggingMiddleware
-from src.database import engine
 import logging
-from . import models,routers
+
+from fastapi import FastAPI
+
+from src.database import engine
+
+from . import models, routers
+from .logger import RouterLoggingMiddleware
 
 models.Base.metadata.create_all(bind=engine)
 

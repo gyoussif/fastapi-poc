@@ -1,7 +1,10 @@
-from fastapi import Depends, HTTPException, APIRouter
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
+
 from src.database import get_db
+
 from .. import models, schemas
+
 cart_router = APIRouter(prefix="/api/v1/cart", tags=["Carts"])
 
 
@@ -23,7 +26,7 @@ async def get_customer_carts(customer_id: int,
     return db.query(models.Cart).filter(models.Cart.customer_id ==
                                         customer_id).offset(skip).limit(limit).all()
 
-# Endpoint to create a new Cart
+
 @cart_router.post("/")
 def create_cart(cart_data: schemas.CartCreate, db: Session = Depends(get_db)):
     cart = models.Cart(**cart_data.dict())
@@ -31,7 +34,7 @@ def create_cart(cart_data: schemas.CartCreate, db: Session = Depends(get_db)):
     db.commit()
     return cart
 
-# Endpoint to update an existing Cart
+
 @cart_router.put("/{cart_id}/")
 async def update_cart(cart_id: int, cart_data: schemas.CartUpdate, db: Session = Depends(get_db)):
     cart = db.query(models.Cart).filter(models.Cart.id == cart_id).first()

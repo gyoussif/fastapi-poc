@@ -1,12 +1,14 @@
+import json
 import logging
 import sys
 import time
-import json
 from typing import Callable
 from uuid import uuid4
+
 from fastapi import FastAPI, Request, Response
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.types import Message
+
 LOG_LEVEL = "DEBUG"
 FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 # Logging configuration
